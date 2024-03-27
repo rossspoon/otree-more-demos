@@ -1,0 +1,84 @@
+{{ block title }}Punishment - Round {{ player.round_number }} of {{ C.NUM_ROUNDS }}{{ endblock }}
+{{ block content }}
+
+    <p>
+        You can punish each player up to {{ C.MAX_PUNISHMENT }} points.
+        Each punishment point will reduce the player's payoff by 10%,
+        but will incur a cost to you, according to the table to the right.
+    </p>
+    <div class="frame">
+    <div class="pane">
+        <h3>
+            You contributed {{ player.contribution }}.
+        </h3>
+        <p>
+            Other players' contributions:
+        </p>
+        <table class="table contrib-list">
+            {{ for p in other_players }}
+                <tr>
+                    <td>Player {{ p.id_in_group }}</td>
+                    <td>{{ p.contribution }}</td>
+                </tr>
+            {{ endfor }}
+        </table>
+        
+        <p>Each participant will receive <b> {{ group.individual_share }}</b>
+
+    </div>
+    
+    <div class="pane">
+        <div class="form-grid">
+        {{ formfields }}
+        </div>
+    </div>
+
+    <div class="pane">
+        <table class="table table-striped">
+            <tr>
+                <th>Punishment points</th>
+                <th>Cost to you</th>
+            </tr>
+            {{ for entry in schedule }}
+            <tr>
+                <td>{{ entry.0 }}</td>
+                <td>{{ entry.1|cu }}</td>
+            </tr>
+            {{ endfor }}
+        </table>
+    </div>
+    </div>
+
+    {{ next_button }}
+    
+    <style>
+        p {margin: 10px;}
+        
+        ._otree-content {
+            font-size: 1.5em;
+        }
+        .otree-body {
+            max-width: 95%;
+        }
+        
+        .frame {
+            width: 100%;
+            display: inline-grid;
+            grid-template-columns: auto auto auto;
+            column-gap: 100px;
+        }
+        
+        .pane {
+        }
+        
+        .form-grid {
+            display: inline-grid;
+            grid-template-columns: auto auto;
+            column-gap: 20px;
+        }
+        
+        .contrib-list {
+            width: 60%;
+        }
+    </style>
+{{ endblock }}

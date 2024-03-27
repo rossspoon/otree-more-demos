@@ -1,0 +1,87 @@
+{{ block title }}Results  - Round {{ player.round_number }} of {{ C.NUM_ROUNDS }} {{ endblock }}
+{{ block content }}
+
+    <table>
+        <tr>
+            <th>Group total contribution</th>
+            <td class="plus">&nbsp;</td>
+            <td class="num">{{ group.total_contribution }}</td>
+        </tr>
+        
+    
+        <tr class="gap">
+            <th>Endowment</th>
+            <td class="plus">&nbsp;</td>
+            <td class="num"> {{ C.ENDOWMENT }} </td>
+        </tr>
+        <tr>
+            <th>Your contribution</th>
+            <td class="plus">-</td>
+            <td class="num">{{ player.contribution }}</td>
+        </tr>
+
+        <tr class="u">
+            <th>Group individual share</th>
+            <td class="plus">+</td>
+            <td class="num">{{ group.individual_share }}</td>
+        </tr>
+
+        {{ if group.is_punishing }}
+        <tr >
+            <th>Payment Before Punishment:</th>
+            <td class="plus">&nbsp;</td>
+            <td class="num">{{ player.pay_before_pun }}
+        </tr>
+        
+
+        <tr class="gap">
+            <th>Punishment received (%)</th>
+            <td class="plus">&nbsp;</td>
+            <td class="num">{{ pun_pct }}%</td>
+        </tr>
+ 
+        <tr>
+            <th>Punishment received (points)</th>
+            <td class="plus">-</td>
+            <td class="num">{{ pun_amt }}</td>
+        </tr>
+       
+        <tr class="u">
+            <th>Self cost of punishment</th>
+            <td class="plus">-</td>
+            <td class="num">{{ player.cost_of_punishing }}</td>
+        </tr>
+        {{ endif }}
+        <tr>
+            <th>Your payoff</th>
+            <td class="plus">&nbsp;</td>
+            <td class="num">{{ player.payoff }}</td>
+        </tr>
+    </table>
+    
+    <br/>
+    
+    {{ next_button }}
+    
+    <style>
+    .u td {
+        border-bottom: 2pt solid black;
+        }
+    .gap td {
+        padding-top: 20px;
+    }
+    
+    .gap th {
+        padding-top: 20px;
+    }
+    
+    th {padding-right: 10px;}
+    
+    .plus {padding-right: 30px;}
+    
+    .num {text-align: right;}
+    
+    table {font-size: 20pt;}
+    </style>
+
+{{ endblock }}

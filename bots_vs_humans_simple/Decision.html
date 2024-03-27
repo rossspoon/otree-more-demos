@@ -1,0 +1,38 @@
+{{ block title }}Your Choice{{ endblock }}
+{{ block content }}
+
+    <p>
+        This is a prisoner's dilemma game where you are playing
+        against a bot.
+        Each of you independently chooses whether you want to
+        cooperate or defect.
+        The payoff for you (🧑) and the bot (🤖)
+        are described by the following matrix.
+        Please make your choices.
+    </p>
+
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">The Other Participant</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>🧑: {{C.PAYOFF_B}}, 🤖: {{C.PAYOFF_B}}</td>
+                <td>🧑: {{ C.PAYOFF_D }}, 🤖: {{C.PAYOFF_A}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>🧑: {{C.PAYOFF_A}}, 🤖: {{ C.PAYOFF_D }}</td>
+                <td>🧑: {{C.PAYOFF_C}}, 🤖: {{C.PAYOFF_C}}</td>
+            </tr>
+        </table>
+    </div>
+
+{{ endblock }}

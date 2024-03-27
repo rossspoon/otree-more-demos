@@ -1,0 +1,16 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+
+    <p>
+        {{ if same_choice }}
+            Both of you chose to {{ my_decision }}.
+        {{ else }}
+            You chose to {{ my_decision }} and the bot chose to {{ bot_decision }}.
+        {{ endif }}
+    </p>
+
+    <p>
+        As a result, you earned {{ player.payoff }}.
+    </p>
+
+{{ endblock }}

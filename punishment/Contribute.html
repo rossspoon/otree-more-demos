@@ -1,0 +1,41 @@
+{{ block title }}Contribute - Round {{ player.round_number }} of {{ C.NUM_ROUNDS }} {{ endblock }}
+{{ block content }}
+
+<table>
+    <tr>
+        <th>Number of Players:</th>
+        <td class="b"> {{ num_players }} </td>
+    </tr>
+    <tr>
+        <th>Your Endowment:</th>
+        <td class="b">{{ C.ENDOWMENT }} </td>
+    </tr>
+        
+    <tr>
+        <th>Contribution Multiplier:</th>
+        <td class="b">{{ multiplier }}</td>
+    </tr>
+    </p>
+</table>
+
+    <br/>
+    <br/>
+
+    {{ formfields }}
+    
+    <br/>
+
+    {{ next_button }}
+
+
+<style>
+    .b {font-weight: bold;}
+    table {font-size: 20pt;}
+    th {padding-right: 30px;
+        font-weight: 300;
+    }
+        
+    .col-form-label {font-size: 2em;}
+</style>
+
+{{ endblock }}
