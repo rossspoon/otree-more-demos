@@ -29,7 +29,7 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
-#ADMIN_USERNAME = 'admin'
+ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 #ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
@@ -54,3 +54,11 @@ PARTICIPANT_FIELDS = [
 ]
 
 SESSION_FIELDS = ['mult']
+
+
+ROOMS = [
+    dict(
+        name='publicgood',
+        display_name='Public Goods Experiment',
+        ),
+]
