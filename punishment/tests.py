@@ -5,6 +5,7 @@ import random
 
 class PlayerBot(Bot):
     def play_round(self):
+        yield Instructions
         
         if self.player.round_number == 1 or self.player.round_number == (C.NUM_ROUNDS // 2) +1:
             yield RoundStart
@@ -16,6 +17,7 @@ class PlayerBot(Bot):
             
             feilds = punishment_fields(self.player)
             #form = {f: random.randint(0,3) for f in feilds}
-            yield Punish #, form
+            form = {f: 0 for f in feilds}
+            yield Punish , form
         
         yield Results
