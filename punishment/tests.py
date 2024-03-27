@@ -16,8 +16,8 @@ class PlayerBot(Bot):
         if self.player.group.is_punishing:
             
             feilds = punishment_fields(self.player)
-            #form = {f: random.randint(0,3) for f in feilds}
-            form = {f: 0 for f in feilds}
+            form = {f: random.randint(0,3) for f in feilds}
+            #form = {f: 0 for f in feilds}
             yield Punish , form
         
         yield Results
